@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 
 # from django.contrib.auth import authenticate
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 # from .forms import *
 # from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect
 from core.forms import SignUpForm
 from django.contrib.auth.decorators import login_required
 
-@login_required
+#@login_required
 def home(request):
     return render(request, 'home.html')
 #
@@ -35,12 +35,14 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
+            print ("form is valid")
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('login')
+            # #return redirect('')
+            return render(request, 'signupcomp.html', {'form': form})
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

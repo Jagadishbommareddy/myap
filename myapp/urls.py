@@ -30,7 +30,8 @@ urlpatterns = [
     #url(r'^login/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^login/$', views.LoginView.as_view(template_name='login.html'), name='login'),
     #url(r'^logout/', logout, {'next_page': reverse_lazy('login')}, name='logout'),
-    url(r'^logout/$', RedirectView.as_view(url=reverse_lazy('login')), name='logout'),
+    url(r'^logout/$', views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    #url(r'^logout/$', RedirectView.as_view(url=reverse_lazy('login')), name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
 
     #url(r'^logout/$', views.LogoutView.as_view(next_page= 'login'), name='logout'),
