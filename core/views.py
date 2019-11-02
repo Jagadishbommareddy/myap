@@ -161,13 +161,15 @@ def upload_excel(request):
 import uuid
 @csrf_exempt
 def upload_pdf(request):
+    user_file = request.FILES
     #name = request.POST.get("name")
-    file = request.FILES['file']
-    new_name = str(uuid.uuid4().hex)
-    b = str(file).split(".")
-    ext = b[len(b) - 1]
-    new_name = new_name + "." + ext
-    #path = "/home/karthick/Desktop" + new_name
-    new_media = PdfUpload.objects.create(name=new_name, original_name=str(file),file=file)
-    new_media.save()
+    #file = request.FILES['file'] ### single file upload
+    for f in user_file.getlist('file'):  #### multiple file uploading
+        new_name = str(uuid.uuid4().hex)
+        b = str(f).split(".")
+        ext = b[len(b) - 1]
+        new_name = new_name + "." + ext
+        #path = "/home/karthick/Desktop" + new_name
+        new_media = PdfUpload.objects.create(name=new_name, original_name=str(f),file=f)
+        new_media.save()
     return JsonResponse({'Status': 'Sucess'})
