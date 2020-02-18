@@ -19,7 +19,7 @@ from rest_framework.pagination import (LimitOffsetPagination,PageNumberPaginatio
 from rest_framework.pagination import PageNumberPagination
 from django.views.decorators.csrf import csrf_exempt
 from .pagination import *
-import openpyxl
+
 class LargeResultsSetPagination(PageNumberPagination):
     page_size = 1000
     page_size_query_param = 'page_size'
