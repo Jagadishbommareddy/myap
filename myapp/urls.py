@@ -53,4 +53,5 @@ urlpatterns = [
 #     url(r'^login/$', core_views.login, name='login'),
 #]
 
+#hfhty
 
