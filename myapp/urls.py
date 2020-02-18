@@ -52,4 +52,4 @@ urlpatterns = [
 #     url(r'^signup/$', core_views.signup, name='signup'),
 #     url(r'^login/$', core_views.login, name='login'),
 #]
-#fdjdefjkldfjlfj
+
