@@ -63,8 +63,5 @@ urlpatterns = [
 
 #bgfghbgh
 
-#]
-
-#bgfghbgh
 
 #bgfghbgh
