@@ -60,7 +60,6 @@ urlpatterns = [
 #]
 
 #bgfghbgh
-#gxdshdcsj
 
 
 
