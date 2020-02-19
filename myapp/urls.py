@@ -56,7 +56,6 @@ urlpatterns = [
 #bgfghbgh
 #gxdshdcsj
 
-#gxdshdcsjgdfgt
-#cdnjs
+
 
 
